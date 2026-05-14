@@ -49,7 +49,7 @@ RUN mkdir -p build && cd build && \
     -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 \
     -DCMAKE_CUDA_COMPILER=${CUDA_PATH}/bin/nvcc \
     -DCUDA_NVCC_FLAGS="-Xcompiler;-fPIC" \
-    -DGMX_CUDA_TARGET_SM=90 \
+    # -DGMX_CUDA_TARGET_SM=90 \
     .. && \
     make -j$(nproc) gmx
 
