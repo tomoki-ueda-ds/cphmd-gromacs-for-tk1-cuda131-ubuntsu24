@@ -1,6 +1,6 @@
 # 1. ベースイメージをUbuntu 24.04ベースのCUDA 13.1（最新）に変更
 # ※公式イメージのタグを確認し、開発用(devel)を指定します
-FROM nvidia/cuda:13.1.0-devel-ubuntu24.04
+FROM nvidia/cuda:13.1.0-devel-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -49,7 +49,7 @@ RUN mkdir -p build && cd build && \
     -DCMAKE_CXX_COMPILER=/usr/bin/g++-11 \
     -DCMAKE_CUDA_COMPILER=${CUDA_PATH}/bin/nvcc \
     -DCUDA_NVCC_FLAGS="-Xcompiler;-fPIC" \
-    -DGMX_CUDA_TARGET_SM=80 \
+    -DGMX_CUDA_TARGET_SM=90 \
     .. && \
     make -j$(nproc) gmx
 
